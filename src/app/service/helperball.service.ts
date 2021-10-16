@@ -103,4 +103,17 @@ export class HelperballService {
   delete(url : string, params : any) {
     return this.http.delete<any>(url, this.getHttpOptions(this.getData('delete',params))).pipe(map(res => res));
   }
+
+  public getUserList() : Observable<any> {
+    console.log('gg');
+    let url = this.endPoint + "/user";
+    return this.query(url);
+  }
+
+  public getStatList() : Observable<any> {
+    console.log('hh');
+    let url = this.endPoint + "/stat";
+    return this.query(url);
+  }
+
 }
