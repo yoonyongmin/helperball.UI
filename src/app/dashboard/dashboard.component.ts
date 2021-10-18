@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { map } from 'rxjs/operators';
 import { HelperballService } from '../service/helperball.service';
 
@@ -9,28 +10,71 @@ import { HelperballService } from '../service/helperball.service';
 })
 export class DashboardComponent implements OnInit {
 
-  user: any = [];
-  stat: any = [];
+  users: any = [];
+  stats: any = [];
+  infos: any = [];
+  positions: any = [];
+  foots: any = [];
+
+  body: any = [];
+  
+  weight: any;
+  height: any;
+  foot: any;
+  position: any;
+  age: any;
+
 
   constructor(private helperballService : HelperballService) { }
 
   ngOnInit() {
     this.getUserList();
     this.getStatList();
+    this.getInfoList();
+    this.getPositionList();
+    this.getFootList();
   }
 
   public getUserList() {
     this.helperballService.getUserList().subscribe(res => {
-      this.user = res;
-      console.log(res);
+      this.users = res;
     })
   }
 
   public getStatList() {
     this.helperballService.getStatList().subscribe(res => {
-      this.stat = res;
-      console.log(res);
+      this.stats = res;
     });
   }
 
+  public getInfoList() {
+    this.helperballService.getInfoList().subscribe(res => {
+      this.infos = res;
+      console.log(res);
+    })
+  }
+
+  public getPositionList() {
+    this.helperballService.getPositionList().subscribe(res => {
+      this.positions = res;
+    });
+  }
+
+  public getFootList() {
+    this.helperballService.getFootList().subscribe(res => {
+      this.foots = res;
+      console.log(res);
+    })
+  }
+
+  public addAge(type: any, event: MatDatepickerInputEvent<Date>) {
+    this.age = event.value.getFullYear()+"-"+event.value.getMonth()+"-"+event.value.getDate();
+    console.log(this.age);
+  }
+
+  public saveInfo() {
+    this.helperballService.saveInfo(this.weight, this.height, this.foot, this.position).subscribe(res => {
+
+    })
+  }
 }
