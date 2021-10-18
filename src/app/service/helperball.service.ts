@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class HelperballService {
 
-  endPoint = "http://localhost:8080/api.helperball/hb/v1";
+  endPoint = 'http://localhost:8080/api.helperball/hb/v1';
 
   constructor(
     private http : HttpClient,
@@ -105,15 +105,44 @@ export class HelperballService {
   }
 
   public getUserList() : Observable<any> {
-    console.log('gg');
-    let url = this.endPoint + "/user";
+    let url = this.endPoint + '/user';
     return this.query(url);
   }
 
   public getStatList() : Observable<any> {
-    console.log('hh');
-    let url = this.endPoint + "/stat";
+    let url = this.endPoint + '/stat';
     return this.query(url);
+  }
+
+  public getInfoList() : Observable<any> {
+	  let url = this.endPoint + '/info'
+	  return this.query(url);
+  }
+
+  public getPositionList() : Observable<any> {
+	  let url = this.endPoint + '/position';
+	  return this.query(url);
+  }
+
+  public getFootList() : Observable<any> {
+	  let url = this.endPoint + '/foot';
+	  return this.query(url);
+  }
+
+  public saveInfo(weight, height, foot, position) : Observable<any> {
+	  let url = this.endPoint + '/info';
+	  let params = new HttpParams();
+	  params = params.set('weight', weight)
+	  			.set('height', height)
+				.set('foot', foot)
+				.set('position', position);
+	  return this.post(url, null, params);
+  }
+
+  public updateInfo(info) : Observable<any> {
+	  let url = this.endPoint + '/info';
+	  let body = info;
+	  return this.put(url, body);
   }
 
 }
