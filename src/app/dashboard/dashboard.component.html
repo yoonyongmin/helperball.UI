@@ -4,25 +4,25 @@
 </ng-container> -->
 
 <div class="form-container">
-    <!-- <div class="example-container">
+    <!-- <div class="field-container">
         <mat-form-field appearance="">
           <mat-label>이름</mat-label>
           <input matInput #input maxlength="10" [(ngModel)]="info.name">
         </mat-form-field>
     </div> -->
-    <div class="example-container">
+    <div class="field-container">
         <mat-form-field appearance="">
           <mat-label>몸무게</mat-label>
           <input matInput #input maxlength="10" [(ngModel)]="weight">
         </mat-form-field>
     </div>
-    <div class="example-container">
+    <div class="field-container">
         <mat-form-field appearance="">
           <mat-label>키</mat-label>
           <input matInput #input maxlength="10" [(ngModel)]="height">
         </mat-form-field>
     </div>
-    <div class="example-container">
+    <div class="field-container">
         <mat-form-field appearance="">
           <mat-label>주 사용 발</mat-label>
           <mat-select [(ngModel)]="foot">
@@ -32,7 +32,7 @@
         </mat-select>
         </mat-form-field>
     </div>
-    <div class="example-container">
+    <div class="field-container">
         <mat-form-field appearance="">
             <mat-label>선호 포지션</mat-label>
             <mat-select [(ngModel)]="position">
@@ -42,7 +42,7 @@
             </mat-select>
           </mat-form-field>
     </div>
-    <div class="example-container">
+    <div class="field-container">
         <mat-form-field appearance="">
             <mat-label>생년월일</mat-label>
             <input matInput [matDatepicker]="picker" (dateInput)="addAge('input', $event)">
@@ -62,3 +62,5 @@
     {{position}} <br>
     {{age}}
 </div>
+
+<!-- <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button> -->
