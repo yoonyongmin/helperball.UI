@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { HelperballService } from '../service/helperball.service';
+import { SocialAuthService } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +28,10 @@ export class DashboardComponent implements OnInit {
   age: any;
 
 
-  constructor(private helperballService : HelperballService) { }
+  constructor(
+    private helperballService: HelperballService,
+    private router: Router,
+    private socialAuthService: SocialAuthService,) { }
 
   ngOnInit() {
     this.getUserList();
@@ -77,4 +83,5 @@ export class DashboardComponent implements OnInit {
 
     })
   }
+
 }
