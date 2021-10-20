@@ -38,10 +38,12 @@ export class SignInComponent implements OnInit {
       this.socialAuthService.authState.subscribe((user) => {
         this.socialUser = user;
         this.isLoggedin = (user != null);
-        console.log(this.socialUser);
-        this.token = user.id;
-        this.name = user.name;
-        this.email = user.email;
+
+        if (user != null) {
+          this.token = user.id;
+          this.name = user.name;
+          this.email = user.email;
+        }
 
         this.helperballService.saveUser(this.token, this.name, this.email).subscribe(res => {
           console.log(res);
