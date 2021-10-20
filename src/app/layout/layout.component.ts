@@ -36,9 +36,11 @@ export class LayoutComponent implements OnInit {
   }
   
   logOut(): void {
-    this.socialAuthService.signOut();
-    this.socialAuthService.authState.subscribe((res) => {
+    this.socialAuthService.signOut().then(res => {
+      console.log('로그아웃');
+      this.router.navigate(['/main']);
     });
-    this.router.navigate(['main']);
+    // this.socialAuthService.authState.subscribe((res) => {
+    // });
   }
 }
