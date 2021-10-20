@@ -30,16 +30,7 @@ export class SignInComponent implements OnInit {
       this.loginForm = this.formBuilder.group({
         email: ['', Validators.required],
         password: ['', Validators.required]
-      });    
-      
-      // this.socialAuthService.authState.subscribe((user) => {
-      //   this.socialUser = user;
-      //   this.isLoggedin = (user != null);
-      //   console.log(this.socialUser);
-      //   this.token = user.idToken;
-      //   this.name = user.name;
-      //   this.email = user.email;
-      // });
+      });
     }
     
     loginWithGoogle(): void {
