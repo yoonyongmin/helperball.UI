@@ -178,6 +178,11 @@ export class HelperballService {
 	  return this.query(url);
   }
 
+  public getUserAuthentication(token) : Observable<any> {
+	  let url = this.endPoint + '/user/token?token=' + token;
+	  return this.query(url);
+  }
+
   public userAuthentication(token, name, email) : Observable<any> {
 	let url = this.endPoint + '/user';
 	let body = {
