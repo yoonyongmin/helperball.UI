@@ -178,7 +178,7 @@ export class HelperballService {
 	  return this.query(url);
   }
 
-  public saveUser(token, name, email) : Observable<any> {
+  public userAuthentication(token, name, email) : Observable<any> {
 	let url = this.endPoint + '/user';
 	let body = {
 		token: token,

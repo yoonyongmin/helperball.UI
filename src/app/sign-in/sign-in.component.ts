@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
           this.name = user.name;
           this.email = user.email;
 
-          this.helperballService.saveUser(this.token, this.name, this.email).subscribe(res => {
+          this.helperballService.userAuthentication(this.token, this.name, this.email).subscribe(res => {
             console.log(res);
             console.log('로그인 정보 저장');
             this.router.navigate(['/dashboard']);
