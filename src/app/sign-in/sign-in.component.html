@@ -1,14 +1,31 @@
 <h1>OAuth2 로그인</h1>
 
-<div class="container" style="max-width: 550px">
-  <div *ngIf="!isLoggedin">
-      <h2 class="text-center mb-5">Angular Login with Google</h2>
-      
-      <div>
-        <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
-      </div>
-      <div>
-        <button type="button" (click)="loginWithFacebook()" class="btn btn-danger">Login with Facebook</button>
+<div class="sign-in">
+  <div class="login-container">
+    <div *ngIf="!isLoggedin">
+        <h2 class="text-center mb-5">Angular Login with Google</h2>
+        
+        <div>
+          <div class="login-input">
+            <input type="text">
+          </div>
+          <div class="login-input">
+            <input type="text">
+          </div>
+          <div class="login-button">
+            <button>로그인</button>
+            <button>회원가입</button>
+          </div>
+          
+          <div class="social-container">
+            <span class="social-login">소셜 로그인</span>
+            <img src="../../assets/image/login/googleLogin.PNG" class="login-logo" (click)="loginWithGoogle()">
+            <!-- <img src="../../assets/image/login/facebookLogin.jpg" class="login-logo" (click)="loginWithFacebook()"> -->
+            <img src="../../assets/image/login/naverLogin.PNG" class="login-logo" (click)="loginWithNaver()">
+            <img src="../../assets/image/login/kakaoLogin.PNG" class="login-logo" (click)="loginWithKakao()">
+          </div>
+        </div>
+  
       </div>
     </div>
-  </div>
+</div>
