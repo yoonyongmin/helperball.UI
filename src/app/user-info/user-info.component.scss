@@ -1,0 +1,32 @@
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #424242;
+}
+
+.info-container {
+    width: max-content;
+    height: max-content;
+    padding: 10px 15px 30px 15px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+mat-form-field {
+    width: 20rem;
+    padding-bottom: 2vh;
+}
+
+.save {
+    float: right;
+    button {
+        padding: 10px;
+        color: whitesmoke;
+        background-color: #303030;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}

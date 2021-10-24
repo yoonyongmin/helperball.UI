@@ -1,0 +1,51 @@
+<div class="info">
+    <div class="info-container">
+        <div>
+            <h2>프로필 입력</h2>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="">
+              <mat-label>몸무게</mat-label>
+              <input matInput #input maxlength="10" [(ngModel)]="weight">
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="">
+              <mat-label>키</mat-label>
+              <input matInput #input maxlength="10" [(ngModel)]="height">
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="">
+              <mat-label>주 사용 발</mat-label>
+              <mat-select [(ngModel)]="foot">
+                  <ng-container *ngFor="let foot of foots">
+                      <mat-option value="{{foot.id}}">{{foot.name}}</mat-option>
+                  </ng-container>
+            </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="">
+                <mat-label>선호 포지션</mat-label>
+                <mat-select [(ngModel)]="position">
+                    <ng-container *ngFor="let position of positions">
+                        <mat-option value="{{position.id}}">{{position.name}}</mat-option>
+                    </ng-container>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="">
+                <mat-label>생년월일</mat-label>
+                <input matInput [matDatepicker]="picker" (dateInput)="addAge('input', $event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+    
+        <div class="save">
+            <button (click)="saveInfo()">저장</button>
+        </div>
+    </div>
+</div>
