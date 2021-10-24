@@ -12,6 +12,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { LayoutComponent } from './layout/layout.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+
+
+const googleLoginOptions = {
+  scope: 'profile'
+};
 
 @NgModule({
   declarations: [
@@ -19,7 +25,8 @@ import { LayoutComponent } from './layout/layout.component';
     DashboardComponent,
     SignUpComponent,
     SignInComponent,
-    LayoutComponent
+    LayoutComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
