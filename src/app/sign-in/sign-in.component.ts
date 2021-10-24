@@ -66,4 +66,8 @@ export class SignInComponent implements OnInit {
       this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
     }
 
+    signUp() {
+      this.router.navigate(['/signUp']);
+    }
+
 }

@@ -1,9 +1,7 @@
-<h1>OAuth2 로그인</h1>
-
 <div class="sign-in">
   <div class="login-container">
     <div *ngIf="!isLoggedin">
-        <h2 class="text-center mb-5">Angular Login with Google</h2>
+        <h2 class="text-center mb-5">HPB 시작하기</h2>
         
         <div>
           <div class="login-input">
@@ -14,7 +12,7 @@
           </div>
           <div class="login-button">
             <button>로그인</button>
-            <button>회원가입</button>
+            <button (click)="signUp()">회원가입</button>
           </div>
           
           <div class="social-container">
