@@ -182,9 +182,17 @@ export class HelperballService {
 	  let url = this.endPoint + '/user/token?token=' + token;
 	  return this.query(url);
   }
+  
+  public signUp() : Observable<any> {
+	let url = this.endPoint + '/user';
+	let body = {
+
+	};
+	return this.post(url, body);
+  }
 
   public userAuthentication(token, name, email) : Observable<any> {
-	let url = this.endPoint + '/user';
+	let url = this.endPoint + '/user/oauth';
 	let body = {
 		token: token,
 		name: name,
