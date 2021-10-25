@@ -4,19 +4,19 @@
             <h2>프로필 입력</h2>
         </div>
         <div class="field-container">
-            <mat-form-field appearance="">
+            <mat-form-field color="warn">
               <mat-label>몸무게</mat-label>
               <input matInput #input maxlength="10" [(ngModel)]="weight">
             </mat-form-field>
         </div>
         <div class="field-container">
-            <mat-form-field appearance="">
+            <mat-form-field color="warn">
               <mat-label>키</mat-label>
               <input matInput #input maxlength="10" [(ngModel)]="height">
             </mat-form-field>
         </div>
         <div class="field-container">
-            <mat-form-field appearance="">
+            <mat-form-field color="warn">
               <mat-label>주 사용 발</mat-label>
               <mat-select [(ngModel)]="foot">
                   <ng-container *ngFor="let foot of foots">
@@ -26,7 +26,7 @@
             </mat-form-field>
         </div>
         <div class="field-container">
-            <mat-form-field appearance="">
+            <mat-form-field color="warn">
                 <mat-label>선호 포지션</mat-label>
                 <mat-select [(ngModel)]="position">
                     <ng-container *ngFor="let position of positions">
@@ -36,7 +36,7 @@
               </mat-form-field>
         </div>
         <div class="field-container">
-            <mat-form-field appearance="">
+            <mat-form-field color="warn">
                 <mat-label>생년월일</mat-label>
                 <input matInput [matDatepicker]="picker" (dateInput)="addAge('input', $event)">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
