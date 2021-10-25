@@ -49,11 +49,11 @@ export class SignInComponent implements OnInit {
               this.helperballService.userAuthentication(this.token, this.name, this.email).subscribe(res => {
                 console.log(res);
                 console.log('로그인 정보 저장');
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/info']);
               })
             } else {
               console.log('로그인');
-              this.router.navigate(['/dashboard']);
+              this.router.navigate(['/info']);
             }
           })
 
