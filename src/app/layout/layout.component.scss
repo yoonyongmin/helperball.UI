@@ -1,0 +1,19 @@
+.nav {
+    position: absolute;
+    width: 100%;
+    background-color: whitesmoke;
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        .menu {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+    }
+}
