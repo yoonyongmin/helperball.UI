@@ -15,9 +15,12 @@ export class SignInComponent implements OnInit {
   socialUser: SocialUser;
   isLoggedin: boolean;
 
-  token;
-  name;
-  email;
+  id: string;
+  name: string;
+  email: string;
+
+  loginId: string;
+  loginPw: string;
 
   constructor(
     private helperballService: HelperballService, 
@@ -40,13 +43,13 @@ export class SignInComponent implements OnInit {
         this.isLoggedin = (user != null);
 
         if (user != null) {
-          this.token = user.id;
+          this.id = user.id;
           this.name = user.name;
           this.email = user.email;
 
-          this.helperballService.getUserAuthentication(this.token).subscribe(res => {
+          this.helperballService.getUserAuthentication(this.id).subscribe(res => {
             if (res === null) {
-              this.helperballService.userAuthentication(this.token, this.name, this.email).subscribe(res => {
+              this.helperballService.userAuthentication(this.id, this.name, this.email).subscribe(res => {
                 console.log(res);
                 console.log('로그인 정보 저장');
                 this.router.navigate(['/info']);
@@ -64,6 +67,10 @@ export class SignInComponent implements OnInit {
     
     loginWithFacebook(): void {
       this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    }
+
+    signIn() {
+      this.router.navigate(['/dashboard']);
     }
 
     signUp() {
