@@ -1,66 +1,18 @@
-<!-- <ng-container *ngFor="let user of users">
-    <div>{{user | json}}</div>
-    {{user.info.position.name | json}}
-</ng-container> -->
-
-<div class="form-container">
-    <!-- <div class="field-container">
-        <mat-form-field appearance="">
-          <mat-label>이름</mat-label>
-          <input matInput #input maxlength="10" [(ngModel)]="info.name">
-        </mat-form-field>
-    </div> -->
-    <div class="field-container">
-        <mat-form-field appearance="">
-          <mat-label>몸무게</mat-label>
-          <input matInput #input maxlength="10" [(ngModel)]="weight">
-        </mat-form-field>
+<div class="dashboard">
+    <div class="profile-container">
+        <div class="title">
+            <span>내 기록</span>
+        </div>
+        <div class="profile">
+            <div class="my-profile">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+                <span>내 이름</span>
+            </div>
+            <div class="my-stat">
+                스탯
+            </div>
+        </div>
     </div>
-    <div class="field-container">
-        <mat-form-field appearance="">
-          <mat-label>키</mat-label>
-          <input matInput #input maxlength="10" [(ngModel)]="height">
-        </mat-form-field>
-    </div>
-    <div class="field-container">
-        <mat-form-field appearance="">
-          <mat-label>주 사용 발</mat-label>
-          <mat-select [(ngModel)]="foot">
-              <ng-container *ngFor="let foot of foots">
-                  <mat-option value="{{foot.id}}">{{foot.name}}</mat-option>
-              </ng-container>
-        </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="field-container">
-        <mat-form-field appearance="">
-            <mat-label>선호 포지션</mat-label>
-            <mat-select [(ngModel)]="position">
-                <ng-container *ngFor="let position of positions">
-                    <mat-option value="{{position.id}}">{{position.name}}</mat-option>
-                </ng-container>
-            </mat-select>
-          </mat-form-field>
-    </div>
-    <div class="field-container">
-        <mat-form-field appearance="">
-            <mat-label>생년월일</mat-label>
-            <input matInput [matDatepicker]="picker" (dateInput)="addAge('input', $event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-    </div>
-
-    <button (click)="saveInfo()">저장</button>
 </div>
-
-
-<div>
-    {{weight}} <br>
-    {{height}} <br>
-    {{foot}} <br>
-    {{position}} <br>
-    {{age}}
-</div>
-
-<!-- <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button> -->
