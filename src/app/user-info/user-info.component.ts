@@ -79,4 +79,8 @@ export class UserInfoComponent implements OnInit {
     })
   }
 
+  public skipInfo() {
+    this.router.navigate(['/dashboard']);
+  }
+
 }
