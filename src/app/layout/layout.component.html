@@ -1,14 +1,12 @@
 <div class="nav">
-    <div class="nav-container">
-        <div class="menu">
-            <mat-icon>menu</mat-icon>
-        </div>
-        <div class="user">
-            <ng-container *ngIf="isLoggedin">
-                <div>{{socialUser.name}} 님</div>
-                <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
-            </ng-container>
-            <div>asdf</div>
-        </div>
+    <div class="menu">
+        <mat-icon>menu</mat-icon>
+    </div>
+    <div class="user">
+        <ng-container *ngIf="isLoggedin">
+            <div>{{socialUser.name}} 님</div>
+            <button type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
+        </ng-container>
+        <div>asdf</div>
     </div>
 </div>
