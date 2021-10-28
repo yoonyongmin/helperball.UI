@@ -217,4 +217,9 @@ export class HelperballService {
 	  return this.put(url, body);
   }
 
+  public sendMail() : Observable<any> {
+	  let url = this.endPoint + '/mail';
+	  return this.post(url, null);
+  }
+
 }

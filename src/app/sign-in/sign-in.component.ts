@@ -77,4 +77,8 @@ export class SignInComponent implements OnInit {
       this.router.navigate(['/signUp']);
     }
 
+    sendMail() {
+      this.helperballService.sendMail();
+    }
+
 }
