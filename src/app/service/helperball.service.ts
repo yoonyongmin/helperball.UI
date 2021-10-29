@@ -178,8 +178,8 @@ export class HelperballService {
 	  return this.query(url);
   }
 
-  public getUserAuthentication(token) : Observable<any> {
-	  let url = this.endPoint + '/user/token?token=' + token;
+  public getUserAuthentication(userId) : Observable<any> {
+	  let url = this.endPoint + '/user/userId?userId=' + userId;
 	  return this.query(url);
   }
   
@@ -217,9 +217,14 @@ export class HelperballService {
 	  return this.put(url, body);
   }
 
-  public sendMail() : Observable<any> {
-	  let url = this.endPoint + '/mail';
-	  return this.post(url, null);
+  public sendMail(userId, name) : Observable<any> {
+	  console.log('send');
+	  let url = this.endPoint + '/oauth/mail';
+	  let body = {
+		  userId: userId,
+		  name: name
+	  }
+	  return this.post(url, body);
   }
 
 }

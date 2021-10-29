@@ -47,7 +47,7 @@ export class SignInComponent implements OnInit {
           this.name = user.name;
           this.email = user.email;
 
-          this.helperballService.getUserAuthentication(this.id).subscribe(res => {
+          this.helperballService.getUserAuthentication(this.email).subscribe(res => {
             if (res === null) {
               this.helperballService.userAuthentication(this.id, this.name, this.email).subscribe(res => {
                 console.log(res);
@@ -78,7 +78,7 @@ export class SignInComponent implements OnInit {
     }
 
     sendMail() {
-      this.helperballService.sendMail();
+      this.helperballService.sendMail("dydals361@gmail.com", "윤용민");
     }
 
 }
