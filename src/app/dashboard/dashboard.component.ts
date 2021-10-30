@@ -84,4 +84,8 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  public goMatch() {
+    this.router.navigate(['/match']);
+  }
+
 }
