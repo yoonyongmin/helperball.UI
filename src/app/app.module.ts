@@ -13,6 +13,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { LayoutComponent } from './layout/layout.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { MatchComponent } from './match/match.component';
 
 
 const googleLoginOptions = {
@@ -26,7 +27,8 @@ const googleLoginOptions = {
     SignUpComponent,
     SignInComponent,
     LayoutComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
