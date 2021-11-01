@@ -14,6 +14,7 @@ import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthServiceConfig, So
 import { LayoutComponent } from './layout/layout.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { MatchComponent } from './match/match.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 const googleLoginOptions = {
@@ -38,7 +39,10 @@ const googleLoginOptions = {
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
