@@ -15,8 +15,17 @@
             </div>
         </div>
     </div>
-
+    
     <div>
         <span (click)="goMatch()">매치시작</span>
     </div>
+
+    <!-- <div class="button-groups">
+        <button (click)="theme=undefined" nz-button nzType="default">default</button>
+        <button (click)="theme='dark'" nz-button nzType="default">dark</button>
+        <button (click)="theme='macarons'" nz-button nzType="default">macarons(theme file)</button>
+        <button (click)="theme=coolTheme" nz-button nzType="default">cool(theme object)</button>
+    </div> -->
+    <div echarts [options]="options" [theme]="'dark'" class="echart"></div>
+
 </div>
