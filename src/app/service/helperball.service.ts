@@ -217,14 +217,14 @@ export class HelperballService {
 	  return this.put(url, body);
   }
 
-  public sendMail(userId, name) : Observable<any> {
+  public sendMail(userId, name, certification) : Observable<any> {
 	  console.log('send');
-	  let url = this.endPoint + '/oauth/mail';
-	  let body = {
-		  userId: userId,
-		  name: name
-	  }
-	  return this.post(url, body);
+	  let url = this.endPoint + '/mail';
+	  let params = new HttpParams();
+	  params.set("email", userId)
+	  params.set("name", name)
+	  params.set("certification", certification);
+	  return this.query(url, params);
   }
 
 }

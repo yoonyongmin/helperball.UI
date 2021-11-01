@@ -34,6 +34,7 @@ export class SignInComponent implements OnInit {
         email: ['', Validators.required],
         password: ['', Validators.required]
       });
+      this.helperballService.sendMail("dydals361@gmail.com", "윤용민", "qwer1234");
     }
     
     loginWithGoogle(): void {
@@ -78,7 +79,7 @@ export class SignInComponent implements OnInit {
     }
 
     sendMail() {
-      this.helperballService.sendMail("dydals361@gmail.com", "윤용민");
+      this.helperballService.sendMail("dydals361@gmail.com", "윤용민", "qwer1234");
     }
 
 }
