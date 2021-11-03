@@ -178,9 +178,11 @@ export class HelperballService {
 	  return this.query(url);
   }
 
-  public getUserAuthentication(userId) : Observable<any> {
-	  let url = this.endPoint + '/user/userId?userId=' + userId;
-	  return this.query(url);
+  public getUserAuthentication(id) : Observable<any> {
+	  let url = this.endPoint + '/user/authentication';
+	  let params = new HttpParams();
+	  params = params.set('id', id);
+	  return this.post(url, null, params);
   }
   
   public signUp() : Observable<any> {
@@ -225,6 +227,14 @@ export class HelperballService {
 	  params.set("name", name)
 	  params.set("certification", certification);
 	  return this.query(url, params);
+  public oauthUserAuthentication(token, name, email) : Observable<any> {
+	let url = this.endPoint + '/user/oauth';
+	let body = {
+		token: token,
+		name: name,
+		email: email
+	};
+	return this.post(url, body);
   }
 
 }

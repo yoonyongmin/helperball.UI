@@ -50,7 +50,7 @@ export class SignInComponent implements OnInit {
 
           this.helperballService.getUserAuthentication(this.email).subscribe(res => {
             if (res === null) {
-              this.helperballService.userAuthentication(this.id, this.name, this.email).subscribe(res => {
+              this.helperballService.oauthUserAuthentication(this.id, this.name, this.email).subscribe(res => {
                 console.log(res);
                 console.log('로그인 정보 저장');
                 this.router.navigate(['/info']);
