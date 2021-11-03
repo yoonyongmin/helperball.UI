@@ -226,7 +226,9 @@ export class HelperballService {
 	  params.set("email", userId)
 	  params.set("name", name)
 	  params.set("certification", certification);
-	  return this.query(url, params);
+	  return this.post(url, null, params);
+  }
+
   public oauthUserAuthentication(token, name, email) : Observable<any> {
 	let url = this.endPoint + '/user/oauth';
 	let body = {
