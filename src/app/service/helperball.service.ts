@@ -185,20 +185,12 @@ export class HelperballService {
 	  return this.post(url, null, params);
   }
   
-  public signUp() : Observable<any> {
+  public signUp(id, name, password) : Observable<any> {
 	let url = this.endPoint + '/user';
 	let body = {
-
-	};
-	return this.post(url, body);
-  }
-
-  public userAuthentication(token, name, email) : Observable<any> {
-	let url = this.endPoint + '/user/oauth';
-	let body = {
-		token: token,
+		id: id,
 		name: name,
-		email: email
+		password: password
 	};
 	return this.post(url, body);
   }
