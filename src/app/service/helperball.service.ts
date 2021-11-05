@@ -185,10 +185,10 @@ export class HelperballService {
 	  return this.post(url, null, params);
   }
   
-  public signUp(id, name, password) : Observable<any> {
+  public signUp(userId, name, password) : Observable<any> {
 	let url = this.endPoint + '/user';
 	let body = {
-		id: id,
+		userId: userId,
 		name: name,
 		password: password
 	};
