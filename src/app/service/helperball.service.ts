@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class HelperballService {
 
   endPoint = 'http://localhost:8080/api.helperball/hb/v1';
+  session;
 
   constructor(
     private http : HttpClient,
@@ -66,23 +67,23 @@ export class HelperballService {
 
   getDefaultHeaders(contentType?: string): HttpHeaders {
 		if (localStorage.getItem('helperballSession')) {
-			const session = JSON.parse(localStorage.getItem('helperballSession'));
+			this.session = JSON.parse(localStorage.getItem('helperballSession'));
 
 			if(localStorage.getItem('locale')) {
 				return new HttpHeaders({
 					'Content-Type': (contentType ? contentType : 'application/json'),
-					'LoginId': session.loginId,
-					'AccessKey': session.accessKey,
-					'SecretKey': session.secretKey,
+					'LoginId': this.session.loginId,
+					'AccessKey': this.session.accessKey,
+					'SecretKey': this.session.secretKey,
 					'Accept-Language' : localStorage.getItem('locale')
 				});
 			}
 			else {
 				return new HttpHeaders({
 					'Content-Type': (contentType ? contentType : 'application/json'),
-					'LoginId': session.loginId,
-					'AccessKey': session.accessKey,
-					'SecretKey': session.secretKey
+					'LoginId': this.session.loginId,
+					'AccessKey': this.session.accessKey,
+					'SecretKey': this.session.secretKey
 				});
 			}
 		}
