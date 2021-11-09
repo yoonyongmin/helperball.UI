@@ -5,14 +5,14 @@
         </div>
         <div class="field-container">
             <mat-form-field color="warn">
-              <mat-label>몸무게</mat-label>
-              <input matInput #input maxlength="10" [(ngModel)]="weight">
+              <mat-label>키</mat-label>
+              <input matInput #input maxlength="10" [(ngModel)]="height">
             </mat-form-field>
         </div>
         <div class="field-container">
             <mat-form-field color="warn">
-              <mat-label>키</mat-label>
-              <input matInput #input maxlength="10" [(ngModel)]="height">
+              <mat-label>몸무게</mat-label>
+              <input matInput #input maxlength="10" [(ngModel)]="weight">
             </mat-form-field>
         </div>
         <div class="field-container">
@@ -20,7 +20,7 @@
               <mat-label>주 사용 발</mat-label>
               <mat-select [(ngModel)]="foot">
                   <ng-container *ngFor="let foot of foots">
-                      <mat-option value="{{foot.id}}">{{foot.name}}</mat-option>
+                      <mat-option value="{{foot}}">{{foot}}</mat-option>
                   </ng-container>
             </mat-select>
             </mat-form-field>
@@ -30,7 +30,7 @@
                 <mat-label>선호 포지션</mat-label>
                 <mat-select [(ngModel)]="position">
                     <ng-container *ngFor="let position of positions">
-                        <mat-option value="{{position.id}}">{{position.name}}</mat-option>
+                        <mat-option value="{{position}}">{{position}}</mat-option>
                     </ng-container>
                 </mat-select>
               </mat-form-field>
