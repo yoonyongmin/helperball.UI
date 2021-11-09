@@ -164,21 +164,6 @@ export class HelperballService {
     return this.query(url);
   }
 
-  public getInfoList() : Observable<any> {
-	  let url = this.endPoint + '/info'
-	  return this.query(url);
-  }
-
-  public getPositionList() : Observable<any> {
-	  let url = this.endPoint + '/position';
-	  return this.query(url);
-  }
-
-  public getFootList() : Observable<any> {
-	  let url = this.endPoint + '/foot';
-	  return this.query(url);
-  }
-
   public getUserAuthentication(id) : Observable<any> {
 	  let url = this.endPoint + '/user/authentication';
 	  let params = new HttpParams();
@@ -187,23 +172,26 @@ export class HelperballService {
   }
   
   public signUp(userId, name, password) : Observable<any> {
+	  console.log(userId, name, password)
 	let url = this.endPoint + '/user';
-	let body = {
-		userId: userId,
-		name: name,
-		password: password
-	};
-	return this.post(url, body);
+	let params = new HttpParams()
+		.set('userId', userId)
+		.set('name', name)
+		.set('password', password);
+	return this.post(url, null, params);
   }
 
-  public saveInfo(weight, height, foot, position) : Observable<any> {
+  public saveInfo(weight, height, foot, position, age) : Observable<any> {
 	  let url = this.endPoint + '/info';
-	  let params = new HttpParams();
-	  params = params.set('weight', weight)
-	  			.set('height', height)
-				.set('foot', foot)
-				.set('position', position);
-	  return this.post(url, null, params);
+	  let body = {
+		  weight: weight,
+		  height: height,
+		  foot: foot,
+		  position: position,
+		  age: age,
+	  }
+	  let params = new HttpParams().set('userId', 'yoonyongmin');
+	  return this.post(url, body, params);
   }
 
   public updateInfo(info) : Observable<any> {
@@ -216,9 +204,9 @@ export class HelperballService {
 	  console.log('send');
 	  let url = this.endPoint + '/mail';
 	  let params = new HttpParams();
-	  params.set("email", userId)
-	  params.set("name", name)
-	  params.set("certification", certification);
+	  params.set('email', userId)
+	  params.set('name', name)
+	  params.set('certification', certification);
 	  return this.post(url, null, params);
   }
 
