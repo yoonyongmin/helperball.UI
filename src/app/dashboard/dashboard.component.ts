@@ -74,14 +74,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getUserList();
     this.getStatList();
-    this.getInfoList();
-    this.getPositionList();
-    this.getFootList();
   }
 
   getUserList() {
     this.helperballService.getUserList().subscribe(res => {
       this.users = res;
+      console.log(res);
     })
   }
 
@@ -91,33 +89,13 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getInfoList() {
-    this.helperballService.getInfoList().subscribe(res => {
-      this.infos = res;
-      console.log(res);
-    })
-  }
-
-  getPositionList() {
-    this.helperballService.getPositionList().subscribe(res => {
-      this.positions = res;
-    });
-  }
-
-  getFootList() {
-    this.helperballService.getFootList().subscribe(res => {
-      this.foots = res;
-      console.log(res);
-    })
-  }
-
   addAge(type: any, event: MatDatepickerInputEvent<Date>) {
     this.age = event.value.getFullYear()+"-"+event.value.getMonth()+"-"+event.value.getDate();
     console.log(this.age);
   }
 
   saveInfo() {
-    this.helperballService.saveInfo(this.weight, this.height, this.foot, this.position).subscribe(res => {
+    this.helperballService.saveInfo(this.weight, this.height, this.foot, this.position, this.age).subscribe(res => {
 
     })
   }

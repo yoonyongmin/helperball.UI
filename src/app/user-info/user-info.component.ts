@@ -16,8 +16,8 @@ export class UserInfoComponent implements OnInit {
   users: any = [];
   stats: any = [];
   infos: any = [];
-  positions: any = [];
-  foots: any = [];
+  foots: any = ['오른발', '왼발', '양발'];
+  positions: any = ['CF', 'SS', 'LW', 'RW', 'AM', 'CM', 'DM', 'CB', 'LB', 'RB', 'GK'];
 
   body: any = [];
   
@@ -42,40 +42,15 @@ export class UserInfoComponent implements OnInit {
     })
   }
 
-  getStatList() {
-    this.helperballService.getStatList().subscribe(res => {
-      this.stats = res;
-    });
-  }
-
-  getInfoList() {
-    this.helperballService.getInfoList().subscribe(res => {
-      this.infos = res;
-      console.log(res);
-    })
-  }
-
-  getPositionList() {
-    this.helperballService.getPositionList().subscribe(res => {
-      this.positions = res;
-    });
-  }
-
-  getFootList() {
-    this.helperballService.getFootList().subscribe(res => {
-      this.foots = res;
-      console.log(res);
-    })
-  }
-
   addAge(type: any, event: MatDatepickerInputEvent<Date>) {
     this.age = event.value.getFullYear()+"-"+event.value.getMonth()+"-"+event.value.getDate();
     console.log(this.age);
   }
 
   saveInfo() {
-    this.helperballService.saveInfo(this.weight, this.height, this.foot, this.position).subscribe(res => {
-
+    this.helperballService.saveInfo(this.weight, this.height, this.foot, this.position, this.age).subscribe(res => {
+      alert('저장 완료!');
+      this.router.navigate(['/dashboard']);
     })
   }
 
