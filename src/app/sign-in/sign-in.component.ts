@@ -70,8 +70,10 @@ export class SignInComponent implements OnInit {
       this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
     }
 
-    signIn() {
-      this.router.navigate(['/dashboard']);
+    login() {
+      this.helperballService.login(this.loginId, this.loginPw).subscribe(res => {
+        this.router.navigate(['/dashboard']);
+      })
     }
 
     signUp() {
