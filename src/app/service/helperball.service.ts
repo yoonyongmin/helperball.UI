@@ -181,6 +181,14 @@ export class HelperballService {
 	return this.post(url, null, params);
   }
 
+  public login(userId, password) : Observable<any> {
+	  let url = this.endPoint + '/login';
+	  let params = new HttpParams()
+	  	.set('userId', userId)
+		.set('password', password);
+	return this.post(url, null, params);
+  }
+
   public saveInfo(weight, height, foot, position, age) : Observable<any> {
 	  let url = this.endPoint + '/info';
 	  let body = {
