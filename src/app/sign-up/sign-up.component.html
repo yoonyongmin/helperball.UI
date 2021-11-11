@@ -22,7 +22,7 @@
       <div class="field-container">
           <mat-form-field appearance="">
             <mat-label>비밀번호</mat-label>
-            <input matInput #pw maxlength="20" [(ngModel)]="userPw">
+            <input matInput #pw maxlength="20" type="password" [(ngModel)]="userPw">
             <mat-hint>비밀번호는 8~20자 내로 숫자와 특수문자를 포함해야 합니다.</mat-hint>
             <mat-error></mat-error>
           </mat-form-field>
@@ -30,7 +30,7 @@
       <div class="field-container">
           <mat-form-field appearance="">
             <mat-label>비밀번호 확인</mat-label>
-            <input matInput #pwCheck maxlength="20" [(ngModel)]="userPwCheck">
+            <input matInput #pwCheck maxlength="20" type="password" [(ngModel)]="userPwCheck">
             <mat-hint>비밀번호를 한 번 더 입력 해 주세요.</mat-hint>
             <mat-error *ngIf="userPw != userPwCheck">비밀번호를 확인 해 주세요.</mat-error>
           </mat-form-field>

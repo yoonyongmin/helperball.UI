@@ -17,11 +17,10 @@ export class SignUpComponent implements OnInit {
   userPwCheck: any = '';
   userEmail: any = '';
 
-  userIdAuthentication: boolean = true;
+  userIdAuthentication: boolean = false;
 
   idValidator = new FormControl();
   pwValidator = new FormControl();
-
 
   constructor(
     private router: Router,
@@ -35,9 +34,10 @@ export class SignUpComponent implements OnInit {
   userIdDoubleCheck() {
     this.helperballService.getUserAuthentication(this.userId).subscribe(res => {
       if (res == null) {
-        this.userIdAuthentication == false;
+        this.userIdAuthentication = true;
         alert("사용할 수 있는 아이디 입니다.")
       } else {
+        this.userIdAuthentication = false;
         alert("이미 사용하고 있는 아이디 입니다. 다른 아이디를 입력하세요.")
       }
     })
