@@ -16,6 +16,15 @@
 
 .field-container {
     width: max-content;
+    button {
+        font-size: x-small;
+        padding: 8px;
+        color: whitesmoke;
+        background-color: #303030;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 }
 
 mat-form-field {
