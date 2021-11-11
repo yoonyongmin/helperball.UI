@@ -44,7 +44,7 @@
       </div> -->
       <div class="save">
         <!-- <button (click)="signUp()">메일인증</button> -->
-        <button (click)="signUp()" *ngIf="userIdAuthentication && userPw === userPwCheck">회원가입</button>
+        <button (click)="signUp()" *ngIf="userIdAuthentication && userPw != '' && userPw === userPwCheck">회원가입</button>
       </div>
   </div>
 </div>
