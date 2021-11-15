@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { HelperballService } from '../service/helperball.service';
+import { HelperballService } from '../service/helperball/helperball.service';
 import { SocialAuthService } from 'angularx-social-login';
 
 

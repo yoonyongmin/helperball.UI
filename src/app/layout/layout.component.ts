@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GoogleLoginProvider, FacebookLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { HelperballService } from '../service/helperball.service';
+import { HelperballService } from '../service/helperball/helperball.service';
+
 
 @Component({
   selector: 'app-layout',

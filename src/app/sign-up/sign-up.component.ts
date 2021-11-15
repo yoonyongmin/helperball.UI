@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
-import { HelperballService } from '../service/helperball.service';
+import { HelperballService } from '../service/helperball/helperball.service';
+
 
 @Component({
   selector: 'app-sign-up',
