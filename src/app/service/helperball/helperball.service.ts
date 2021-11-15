@@ -209,12 +209,11 @@ export class HelperballService {
   }
 
   public sendMail(userId, name, certification) : Observable<any> {
-	  console.log('send');
 	  let url = this.endPoint + '/mail';
-	  let params = new HttpParams();
-	  params.set('email', userId)
-	  params.set('name', name)
-	  params.set('certification', certification);
+	  let params = new HttpParams()
+		.set('email', userId)
+		.set('name', name)
+		.set('certification', certification);
 	  return this.post(url, null, params);
   }
 
