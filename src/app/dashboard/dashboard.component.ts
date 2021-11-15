@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { HelperballService } from '../service/helperball.service';
+import { HelperballService } from '../service/helperball/helperball.service';
 import { SocialAuthService } from 'angularx-social-login';
 import { EChartsOption } from 'echarts';
 import { ThemeOption } from 'ngx-echarts';
 import { CoolTheme } from './coolTheme';
+import { LoginService } from '../service/login/login.service';
 
 
 @Component({
@@ -55,39 +56,60 @@ export class DashboardComponent implements OnInit {
         radius: [30, 110],
         roseType: 'area',
         data: [
-          { value: 10, name: 'Goal' },
-          { value: 5, name: 'Shoot' },
-          { value: 15, name: 'Assist' },
-          { value: 25, name: 'Pass' },
-          { value: 20, name: 'Tackle' },
-          { value: 35, name: 'Intercept' },
+          { value: '', name: 'Goal' },
+          { value: '', name: 'Shoot' },
+          { value: '', name: 'Assist' },
+          { value: '', name: 'Pass' },
+          { value: '', name: 'Tackle' },
+          { value: '', name: 'Intercept' },
         ]
       }
     ]
   };
 
+  login: any;
+  loginId: any;
+
   constructor(
     private helperballService: HelperballService,
     private router: Router,
-    private socialAuthService: SocialAuthService,) { }
+    private socialAuthService: SocialAuthService,
+    private loginService: LoginService) { }
 
   ngOnInit() {
-    this.getUserList();
-    this.getStatList();
+    this.login = this.loginService.loadLoginSession();
+    // this.loginId = this.login.loginId;
+    this.loginId = 'yoonyongmin';
+
+    this.getUser(this.loginId);
   }
 
-  getUserList() {
-    this.helperballService.getUserList().subscribe(res => {
-      this.users = res;
-      console.log(res);
+  getUser(loginId) {
+    this.helperballService.getUserAuthentication(loginId).subscribe(res => {
+      const stats = res.stat;
+      
+      this.options.series[0].data[0].value = stats[0].goal;
+      this.options.series[0].data[1].value = stats[0].shoot;
+      this.options.series[0].data[2].value = stats[0].assist;
+      this.options.series[0].data[3].value = stats[0].pass;
+      this.options.series[0].data[4].value = stats[0].tackle;
+      this.options.series[0].data[5].value = stats[0].intercept;
     })
   }
 
-  getStatList() {
-    this.helperballService.getStatList().subscribe(res => {
-      this.stats = res;
-    });
-  }
+  // getUserList() {
+  //   this.helperballService.getUserList().subscribe(res => {
+  //     this.users = res;
+  //     console.log(res);
+  //     this.stats = res
+  //   })
+  // }
+
+  // getStatList() {
+  //   this.helperballService.getStatList().subscribe(res => {
+  //     this.stats = res;
+  //   });
+  // }
 
   addAge(type: any, event: MatDatepickerInputEvent<Date>) {
     this.age = event.value.getFullYear()+"-"+event.value.getMonth()+"-"+event.value.getDate();
