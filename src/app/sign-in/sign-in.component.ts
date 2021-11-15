@@ -28,6 +28,7 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder, 
     private socialAuthService: SocialAuthService,
+    private loginService: LoginService
   ) { }
 
     ngOnInit() {
@@ -35,7 +36,7 @@ export class SignInComponent implements OnInit {
         email: ['', Validators.required],
         password: ['', Validators.required]
       });
-      this.helperballService.sendMail("dydals361@gmail.com", "윤용민", "qwer1234");
+      // this.helperballService.sendMail("dydals361@gmail.com", "윤용민", "qwer1234");
     }
     
     loginWithGoogle(): void {
@@ -73,6 +74,15 @@ export class SignInComponent implements OnInit {
 
     login() {
       this.helperballService.login(this.loginId, this.loginPw).subscribe(res => {
+        // const user = res;
+        // const loginSession = this.loginService.loadLoginSession();
+
+        // this.loginService.saveLoginSession({
+        //   'loggedIn': true,
+        //   'loginId': user.userId,
+        //   'loginName': user.name
+        // });
+
         this.router.navigate(['/dashboard']);
       })
     }
