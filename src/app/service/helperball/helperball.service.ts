@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { MessageService } from '../message.service';
 
 
 @Injectable({
@@ -15,6 +16,7 @@ export class HelperballService {
 
   constructor(
     private http : HttpClient,
+	private message: MessageService
   ) { }
 
 //   retrieveToken(code) {
@@ -182,11 +184,16 @@ export class HelperballService {
   }
 
   public login(userId, password) : Observable<any> {
-	  let url = this.endPoint + '/login';
+	  const subject = new Subject<any>();
+	  let url = this.endPoint + '/auth/login';
 	  let params = new HttpParams()
 	  	.set('userId', userId)
 		.set('password', password);
-	return this.post(url, null, params);
+	
+	this.message.postResponse(url, { userId: userId, password: password } ).subscribe(res => {
+		console.log(res);
+	})
+	return subject;
   }
 
   public saveInfo(weight, height, foot, position, age) : Observable<any> {
