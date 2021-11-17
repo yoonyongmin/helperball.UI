@@ -35,7 +35,6 @@ export class MessageService {
 	}
 
 	protected getData(method?: string, params?: any, contentType?: string): any {
-		console.log(contentType);
 		if (method && (method === 'get' || method === 'query')) {
 			if (params) {
 				if (contentType === 'application/json') {
