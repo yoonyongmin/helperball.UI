@@ -57,25 +57,33 @@ export class MessageService {
 
 	getDefaultHeaders(contentType?: string): HttpHeaders {
 		if (localStorage.getItem(LoginService.SessionKey)) {
-			const session = JSON.parse(localStorage.getItem('serengetiSession'));
+			const session = JSON.parse(localStorage.getItem('helperballSession'));
 
-			if(localStorage.getItem('locale')) {
-				return new HttpHeaders({
-					'Content-Type': (contentType ? contentType : 'application/json'),
-					'LoginId': session.loginId,
-					'AccessKey': session.accessKey,
-					'SecretKey': session.secretKey,
-					'Accept-Language' : localStorage.getItem('locale')
-				});
-			}
-			else {
-				return new HttpHeaders({
-					'Content-Type': (contentType ? contentType : 'application/json'),
-					'LoginId': session.loginId,
-					'AccessKey': session.accessKey,
-					'SecretKey': session.secretKey
-				});
-			}
+			return new HttpHeaders({
+				'Content-Type': (contentType ? contentType : 'application/json'),
+				'LoginId': session.loginId,
+				'AccessKey': session.accessKey,
+				'SecretKey': session.secretKey,
+				'Accept-Language' : localStorage.getItem('locale')
+			});
+
+			// if(localStorage.getItem('locale')) {
+			// 	return new HttpHeaders({
+			// 		'Content-Type': (contentType ? contentType : 'application/json'),
+			// 		'LoginId': session.loginId,
+			// 		'AccessKey': session.accessKey,
+			// 		'SecretKey': session.secretKey,
+			// 		'Accept-Language' : localStorage.getItem('locale')
+			// 	});
+			// }
+			// else {
+			// 	return new HttpHeaders({
+			// 		'Content-Type': (contentType ? contentType : 'application/json'),
+			// 		'LoginId': session.loginId,
+			// 		'AccessKey': session.accessKey,
+			// 		'SecretKey': session.secretKey
+			// 	});
+			// }
 		}
 	}
 
