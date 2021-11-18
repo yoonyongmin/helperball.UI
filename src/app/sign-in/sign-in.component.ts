@@ -73,7 +73,7 @@ export class SignInComponent implements OnInit {
     }
 
     login() {
-      this.helperballService.login(this.loginId, this.loginPw).subscribe(res => {
+      this.loginService.login(this.loginId, this.loginPw).subscribe(res => {
         // const user = res;
         // const loginSession = this.loginService.loadLoginSession();
 
@@ -82,6 +82,7 @@ export class SignInComponent implements OnInit {
         //   'loginId': user.userId,
         //   'loginName': user.name
         // });
+        console.log(res);
 
         this.router.navigate(['/dashboard']);
       })
