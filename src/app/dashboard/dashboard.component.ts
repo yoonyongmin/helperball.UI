@@ -78,22 +78,29 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.login = this.loginService.loadLoginSession();
-    // this.loginId = this.login.loginId;
-    this.loginId = 'yoonyongmin';
+    this.loginId = this.login.loginId;
 
-    this.getUser(this.loginId);
+    this.doRefresh();
   }
 
-  getUser(loginId) {
-    this.helperballService.getUserAuthentication(loginId).subscribe(res => {
-      const stats = res.stat;
-      
-      this.options.series[0].data[0].value = stats[0].goal;
-      this.options.series[0].data[1].value = stats[0].shoot;
-      this.options.series[0].data[2].value = stats[0].assist;
-      this.options.series[0].data[3].value = stats[0].pass;
-      this.options.series[0].data[4].value = stats[0].tackle;
-      this.options.series[0].data[5].value = stats[0].intercept;
+  doRefresh() {
+    this.getUser();
+  }
+
+  getUser() {
+    console.log('gg');
+    this.helperballService.getUserAuthentication(this.loginId).subscribe(res => {
+      if (res != null) {
+        console.log(res);
+        const stats = res.stat;
+        
+        this.options.series[0].data[0].value = stats[0].goal;
+        this.options.series[0].data[1].value = stats[0].shoot;
+        this.options.series[0].data[2].value = stats[0].assist;
+        this.options.series[0].data[3].value = stats[0].pass;
+        this.options.series[0].data[4].value = stats[0].tackle;
+        this.options.series[0].data[5].value = stats[0].intercept;
+      }
     })
   }
 
