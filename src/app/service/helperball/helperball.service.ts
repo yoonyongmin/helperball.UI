@@ -183,19 +183,6 @@ export class HelperballService {
 	return this.post(url, null, params);
   }
 
-  public login(userId, password) : Observable<any> {
-	  const subject = new Subject<any>();
-	  let url = this.endPoint + '/auth/login';
-	  let params = new HttpParams()
-	  	.set('userId', userId)
-		.set('password', password);
-	
-	this.message.postResponse(url, { userId: userId, password: password } ).subscribe(res => {
-		console.log(res);
-	})
-	return subject;
-  }
-
   public saveInfo(weight, height, foot, position, age) : Observable<any> {
 	  let url = this.endPoint + '/info';
 	  let body = {
