@@ -166,10 +166,10 @@ export class HelperballService {
     return this.query(url);
   }
 
-  public getUserAuthentication(id) : Observable<any> {
+  public getUserAuthentication(userId) : Observable<any> {
 	  let url = this.endPoint + '/user/authentication';
-	  let params = new HttpParams();
-	  params = params.set('id', id);
+	  let params = new HttpParams()
+	  	.set('userId', userId);
 	  return this.post(url, null, params);
   }
   
