@@ -74,15 +74,19 @@ export class SignUpComponent implements OnInit {
   }
 
   userIdDoubleCheck() {
-    this.helperballService.getUserAuthentication(this.userId).subscribe(res => {
-      if (res == null) {
-        this.userIdAuthentication = true;
-        alert("사용할 수 있는 아이디 입니다.")
-      } else {
-        this.userIdAuthentication = false;
-        alert("이미 사용하고 있는 아이디 입니다. 다른 아이디를 입력하세요.")
-      }
-    })
+    if (this.userId === '' || this.userId === null) {
+      alert("아이디를 입력하세요.");
+    } else {
+      this.helperballService.getUserAuthentication(this.userId).subscribe(res => {
+        if (res == null) {
+          this.userIdAuthentication = true;
+          alert("사용할 수 있는 아이디 입니다.")
+        } else {
+          this.userIdAuthentication = false;
+          alert("이미 사용하고 있는 아이디 입니다. 다른 아이디를 입력하세요.")
+        }
+      })
+    }
   }
 
   signUp() {
