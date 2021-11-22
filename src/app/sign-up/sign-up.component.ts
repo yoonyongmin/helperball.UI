@@ -17,8 +17,12 @@ export class SignUpComponent implements OnInit {
   userPw: any = '';
   userPwCheck: any = '';
   userEmail: any = '';
+  userPhoneNumber: any = '';
+  userPhoneNumberCheck: any = '';
 
   userIdAuthentication: boolean = false;
+  messageAuthentication: boolean = false;
+  messagePost: boolean = false;
 
   formGroup: FormGroup;
   idValidator = new FormControl();
@@ -58,18 +62,28 @@ export class SignUpComponent implements OnInit {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
+      'phone': [null, Validators.required],
+      'confirmPhone': [null, Validators.required],
       'id': [null, Validators.required],
       'name': [null, Validators.required],
       'password': [null, [Validators.required, Validators.minLength(8)]],
-      'confirmpassword': [null, [Validators.required, Validators.minLength(8)]],
+      'confirmPassword': [null, [Validators.required, Validators.minLength(8)]],
     }, {
       validators: this.passwordCheck.bind(this)
     });
   }
 
+  message() {
+    this.messagePost = true;
+  }
+
+  messageCheck() {
+
+  }
+
   passwordCheck(formGroup: FormGroup) {
     const { value: password } = formGroup.get('password');
-    const { value: confirmPassword } = formGroup.get('confirmpassword');
+    const { value: confirmPassword } = formGroup.get('confirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 
