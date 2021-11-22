@@ -221,4 +221,11 @@ export class HelperballService {
 	return this.post(url, body);
   }
 
+  public messageAuthentication(phoneNumber) : Observable<any> {
+	  let url = this.endPoint + '/message';
+	  let params = new HttpParams()
+	  	.set('phoneNumber', phoneNumber);
+	  return this.post(url, null, params);
+  }
+
 }
