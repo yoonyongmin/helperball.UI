@@ -1,9 +1,42 @@
 <div class="sign-up">
-  <div class="signUp-container">
+  <ng-container *ngIf="!messageAuthentication; else messageCheck">
+    <div class="message-container">
+      <div>
+        <h2>문자인증 하기</h2>
+      </div>
+      <div>
+        <form [formGroup]="formGroup">
+          <div>
+            <mat-form-field appearance="">
+              <mat-label>핸드폰 번호</mat-label>
+              <input matInput #id maxlength="20" [(ngModel)]="userPhoneNumber" formControlName="phone">
+              <mat-hint>핸드폰 번호를 입력해주세요.</mat-hint>
+              <mat-error>번호 형식이 아닙니다.</mat-error>
+            </mat-form-field>
+            <button (click)="message()">문자 전송</button>
+          </div>
+    
+          <ng-container *ngIf="messagePost">
+            <div>
+              <mat-form-field appearance="">
+                <mat-label>인증 번호</mat-label>
+                <input matInput #id maxlength="20" [(ngModel)]="userPhoneNumberCheck" formControlName="confirmPhone">
+                <mat-hint>인증 번호를 입력해주세요.</mat-hint>
+                <mat-error>인증 번호가 다릅니다.</mat-error>
+              </mat-form-field>
+              <button (click)="messageCheck()">인증 확인</button>
+            </div>
+          </ng-container>
+        </form>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #messageCheck>
+    <div class="signUp-container">
       <div>
         <h2>회원가입 하기</h2>
       </div>
-
       <form [formGroup]="formGroup">
         <div class="field-container">
             <mat-form-field appearance="">
@@ -33,9 +66,9 @@
           <div class="field-container">
               <mat-form-field appearance="">
                 <mat-label>비밀번호 확인</mat-label>
-                <input matInput #pwCheck maxlength="20" type="password" [(ngModel)]="userPwCheck" formControlName="confirmpassword">
+                <input matInput #pwCheck maxlength="20" type="password" [(ngModel)]="userPwCheck" formControlName="confirmPassword">
                 <mat-hint>비밀번호를 한 번 더 입력 해 주세요.</mat-hint>
-                <mat-error *ngIf="formGroup.get('confirmpassword').touched">비밀번호를 확인 해 주세요.</mat-error>
+                <mat-error *ngIf="formGroup.get('confirmPassword').touched">비밀번호를 확인 해 주세요.</mat-error>
               </mat-form-field>
           </div>
         </form>
@@ -51,5 +84,6 @@
         <!-- <button (click)="signUp()">메일인증</button> -->
         <button (click)="signUp()" *ngIf="formGroup.valid">회원가입</button>
       </div>
-  </div>
+    </div>
+  </ng-template>
 </div>

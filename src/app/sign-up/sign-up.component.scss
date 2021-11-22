@@ -6,6 +6,14 @@
     background-color: #424242;
 }
 
+.message-container {
+    width: max-content;
+    height: max-content;
+    padding: 10px 15px 20px 15px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
 .signUp-container {
     width: max-content;
     height: max-content;
@@ -16,15 +24,16 @@
 
 .field-container {
     width: max-content;
-    button {
-        font-size: x-small;
-        padding: 8px;
-        color: whitesmoke;
-        background-color: #303030;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
+}
+
+button {
+    font-size: x-small;
+    padding: 8px;
+    color: whitesmoke;
+    background-color: #303030;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 mat-form-field {
