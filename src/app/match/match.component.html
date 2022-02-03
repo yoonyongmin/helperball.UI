@@ -2,27 +2,38 @@
     <div class="match-container">
         <div class="players">
             <div class="forward">
-                <div>1</div>
+                <div class="example-box" cdkDrag>
+                </div>
             </div>
             <div class="midfielder">
                 <div class="middle-top">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
+                    <div class="example-box" cdkDrag>
+                    </div>
+                    <div class="example-box" cdkDrag>
+                    </div>
+                    <div class="example-box" cdkDrag>
+                    </div>
                 </div>
                 <div class="middle-bottom">
-                    <div>4</div>
-                    <div>5</div>
+                    <div class="example-box" cdkDrag>
+                    </div>
+                    <div class="example-box" cdkDrag>
+                    </div>
                 </div>
             </div>
             <div class="defender">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
+                <div class="example-box" cdkDrag>
+                </div>
+                <div class="example-box" cdkDrag>
+                </div>
+                <div class="example-box" cdkDrag>
+                </div>
+                <div class="example-box" cdkDrag>
+                </div>
             </div>
             <div class="goalkeeper">
-                <div>1</div>
+                <div class="example-box" cdkDrag [cdkDragDisabled]="true">
+                </div>
             </div>
         </div>
         <div class="field">
